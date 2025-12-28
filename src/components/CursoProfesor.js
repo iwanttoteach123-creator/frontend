@@ -2294,9 +2294,7 @@ const planificacionSegura = {
   // ✅ Bibliografía (nuevo)
   bibliografia_material: planificacionData.bibliografia_material || [],
 
-  // ✅ Compatibilidad antigua (si aún hay registros viejos)
-  materiales_apoyo: planificacionData.materiales_apoyo || [],
-  frameworks: planificacionData.frameworks || {},
+
 
   // Contexto BD
   nombre_curso: planificacionData.nombre_curso || "",
@@ -2429,83 +2427,89 @@ const handleVerPlanificacion = async (guion) => {
     console.log("📡 Respuesta completa del backend:", response);
     console.log("📊 Datos de planificación recibidos:", response.data);
 
-    if (response.status === 200) {
-      const planificacionData = response.data;
-
-      // ✅ ACTUALIZADO: GUARDAR DATOS EN VARIABLE GLOBAL con nueva estructura
-      const identificacionClase = planificacionData.identificacion_clase || {};
-      setDatosGlobalesClase({
-        nombreProfesor: planificacionData.nombre_profesor || "",
-        nombreUnidad: planificacionData.nombre_unidad || "",
-        // ✅ CAMBIO: Usar 'asignatura' en lugar de 'nombre_asignatura'
-        nombreClase: identificacionClase.asignatura || identificacionClase.titulo || guion.titulo,
-        nombreMateria: planificacionData.nombre_curso || ""
-      });
-      
-      console.log("🌍 Datos globales actualizados:", {
-        profesor: planificacionData.nombre_profesor,
-        unidad: planificacionData.nombre_unidad,
-        clase: identificacionClase.asignatura || identificacionClase.titulo,
-        materia: planificacionData.nombre_curso
-      });
-
-      // ✅ Verificar nueva estructura de datos
-      console.log("🆕 Verificación de nueva estructura:", {
-        tieneResultadoAprendizaje: !!planificacionData.resultado_aprendizaje,
-        tieneContenidosTematicos: !!planificacionData.contenidos_tematicos,
-        tieneAnalisisRA: !!planificacionData.analisis_ra,
-        tieneFrameworks: !!planificacionData.frameworks,
-        tieneMetadata: !!planificacionData.metadata,
-        camposIdentificacion: planificacionData.identificacion_clase ? Object.keys(planificacionData.identificacion_clase) : []
-      });
-
-      // ✅ EXTRAER Y ESTRUCTURAR correctamente los datos
-      let planificacionParaModal;
-
-      if (planificacionData.guion) {
-        console.log("📝 Estructura 'guion' detectada (legacy)");
-        planificacionParaModal = {
-          ...planificacionData.guion,
-          guion_id: guionId,
-          titulo: guion.titulo,
-          // ✅ Agregar campos faltantes
-          resultado_aprendizaje: planificacionData.resultado_aprendizaje || "",
-          contenidos_tematicos: planificacionData.contenidos_tematicos || "",
-          analisis_ra: planificacionData.analisis_ra || {},
-          frameworks: planificacionData.frameworks || {},
-          metadata: planificacionData.metadata || {}
-        };
-
-        if (planificacionParaModal.desarrollo) {
-          planificacionParaModal.desarrollo = formatDesarrolloParaModal(planificacionParaModal.desarrollo);
-        }
-      } else {
-        console.log("📝 Estructura raíz detectada (nueva)");
-        planificacionParaModal = {
-          ...planificacionData,
-          guion_id: guionId,
-          titulo: guion.titulo
-        };
-      }
-
-      console.log("🎯 Planificación preparada para modal:", {
-        id: planificacionParaModal.guion_id,
-        titulo: planificacionParaModal.titulo,
-        analisisRA: !!planificacionParaModal.analisis_ra,
-        frameworks: !!planificacionParaModal.frameworks,
-        metadata: !!planificacionParaModal.metadata
-      });
-
-      openModalPlanificacion(planificacionParaModal, guion.titulo);
-
-    } else {
+    if (response.status !== 200) {
       alert("No se pudo obtener la planificación.");
+      return;
     }
+
+    const planificacionData = response.data;
+
+    // Si backend devuelve {message: "..."} en vez de planificación
+    if (planificacionData?.message && !planificacionData?.identificacion_clase) {
+      alert(planificacionData.message);
+      return;
+    }
+
+    const identificacionClase = planificacionData.identificacion_clase || {};
+
+    // ✅ Mejor heurística para "nombreClase"
+    // (usa lo que venga en identificacion_clase, si no, usa el titulo del guion)
+    const nombreClase =
+      identificacionClase.nombre_asignatura ||
+      identificacionClase.asignatura ||            // por si existe en algunos casos
+      identificacionClase.titulo ||
+      identificacionClase.titulo_clase ||
+      guion.titulo ||
+      "Planificación";
+
+    // ✅ Datos globales (para encabezado / breadcrumb)
+    setDatosGlobalesClase({
+      nombreProfesor: planificacionData.nombre_profesor || "",
+      nombreUnidad: planificacionData.nombre_unidad || "",
+      nombreClase,
+      nombreMateria: planificacionData.nombre_curso || ""
+    });
+
+    console.log("🌍 Datos globales actualizados:", {
+      profesor: planificacionData.nombre_profesor,
+      unidad: planificacionData.nombre_unidad,
+      clase: nombreClase,
+      materia: planificacionData.nombre_curso
+    });
+
+    // ✅ Verificación REAL según tu backend actual
+    console.log("🧾 Verificación de estructura actual:", {
+      tieneResultadoAprendizaje: !!planificacionData.resultado_aprendizaje,
+      tieneContenidoTematico: !!planificacionData.contenido_tematico,
+      tieneAnalisisRA: !!planificacionData.analisis_ra,
+      tieneSecuencia: !!planificacionData.secuencia_actividades,
+      tieneEstrategias: Array.isArray(planificacionData.estrategias_didacticas),
+      tieneEvaluaciones: Array.isArray(planificacionData.evaluaciones_formativas),
+      tieneBibliografia: Array.isArray(planificacionData.bibliografia_material),
+      tieneMetadata: !!planificacionData.metadata,
+      camposIdentificacion: planificacionData.identificacion_clase
+        ? Object.keys(planificacionData.identificacion_clase)
+        : []
+    });
+
+    // ✅ Preparar payload para el modal
+    // Tu openModalPlanificacion ya normaliza y hace compat, así que no inventes.
+    // Solo asegúrate de pasar guion_id y titulo.
+    const planificacionParaModal = {
+      ...planificacionData,
+      guion_id: guionId,
+      titulo: guion.titulo || planificacionData.titulo || nombreClase,
+
+      // Compat por si el backend viene con algún nombre viejo:
+      contenidos_tematicos: planificacionData.contenidos_tematicos || planificacionData.contenido_tematico || "",
+      contenido_tematico: planificacionData.contenido_tematico || planificacionData.contenidos_tematicos || ""
+    };
+
+    console.log("🎯 Planificación preparada para modal:", {
+      id: planificacionParaModal.guion_id,
+      titulo: planificacionParaModal.titulo,
+      analisisRA: !!planificacionParaModal.analisis_ra,
+      metadata: !!planificacionParaModal.metadata
+    });
+
+    openModalPlanificacion(planificacionParaModal, planificacionParaModal.titulo);
+
   } catch (error) {
     console.error("Error al obtener planificación:", error);
     alert("Error al cargar la planificación");
   }
 };
+
 
 const formatDesarrolloParaModal = (texto) => {
   if (!texto) return "";
