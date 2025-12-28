@@ -11,7 +11,6 @@
     "@topology/chart-diagram": "^1.2.10",
     "@topology/core": "^1.2.16",
     "@topology/flow-diagram": "^1.1.1",
-    "@topology/layout": "^0.3.0",
     "@viz-js/viz": "^3.21.0",
     "axios": "^1.13.2",
     "bootstrap": "^5.3.3",
