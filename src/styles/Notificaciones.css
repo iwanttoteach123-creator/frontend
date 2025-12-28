@@ -1,0 +1,101 @@
+/* Notificaciones.css */
+
+.notificaciones-container {
+    max-width: 800px; /* Ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 20px; /* Espaciado interno */
+    background-color: #FFFFFF; /* Color de fondo */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    margin-top: 20px;
+}
+body.dark-mode .notificaciones-container {
+    background-color: #172140; /* Color de fondo oscuro */
+    color: #fff; /* Color del texto */
+}
+
+.notificaciones-container h1 {
+    text-align: center; /* Centrar el título */
+    color: #333; /* Color del texto del título */
+    margin-bottom: 20px; /* Espacio debajo del título */
+}
+body.dark-mode .notificaciones-container h1 {
+    color: #fff; /* Color del texto del título en modo oscuro */
+}
+
+.notificaciones-container ul {
+    list-style: none; /* Quita las viñetas de la lista */
+    padding: 0; /* Elimina el padding */
+}
+
+.notificaciones-container li {
+    background-color: #fff; /* Color de fondo de cada notificación */
+    border-radius: 5px; /* Bordes redondeados para cada notificación */
+    padding: 15px; /* Espaciado interno */
+    margin-bottom: 10px; /* Espacio entre notificaciones */
+    transition: background-color 0.3s; /* Transición suave para el hover */
+    cursor: pointer; /* Cambia el cursor al pasar el mouse */
+    position: relative; /* Necesario para el posicionamiento del punto */
+}
+body.dark-mode .notificaciones-container li {
+    background-color: #0A1126; /* Color de fondo oscuro para cada notificación */
+    color: #fff; /* Color del texto en modo oscuro */
+}
+
+.notificaciones-container li:hover {
+    background-color: #f1f1f1; /* Color de fondo al pasar el mouse */
+}
+body.dark-mode .notificaciones-container li:hover {
+    background-color: #555F73; /* Color de fondo oscuro al pasar el mouse */
+}
+
+/* Pseudo-elemento para el punto rojo en notificaciones no leídas */
+.notificaciones-container li:not([data-leido="true"])::after {
+    content: ''; /* Pseudo-elemento */
+    position: absolute; /* Posicionamiento absoluto */
+    top: 50%; /* Centra verticalmente */
+    right: 15px; /* Espacio desde la derecha */
+    transform: translateY(-50%); /* Ajusta el centrado vertical */
+    width: 10px; /* Ancho del punto */
+    height: 10px; /* Alto del punto */
+    background-color: red; /* Color rojo para el punto */
+    border-radius: 50%; /* Hace que el punto sea redondo */
+}
+
+.notificaciones-container h2 {
+    margin: 0; /* Elimina el margen del título */
+    font-size: 1.2em; /* Tamaño de fuente para el título de la notificación */
+    color: #007BFF; /* Color azul para el título */
+}
+
+.notificaciones-container p {
+    margin: 5px 0; /* Margen arriba y abajo de los párrafos */
+    color: #555; /* Color gris para el texto */
+}
+
+.notificaciones-container p:last-of-type {
+    font-style: italic; /* Estilo en cursiva para el estado de lectura */
+    color: #888; /* Color gris claro para el estado de lectura */
+}
+
+.notificaciones-container button {
+    background-color: #03b051; /* Color de fondo azul */
+    color: white; /* Texto en blanco */
+    border: none; /* Sin borde */
+    padding: 5px 10px; /* Espaciado */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cursor de mano */
+}
+
+.notificaciones-container button:hover {
+    background-color: #056731; /* Color más oscuro al pasar el ratón */
+}
+
+.notificaciones-container .boton-pag{
+    background-color: rgb(113, 106, 106);
+    margin: 0 10px;
+}
+
+.notificaciones-container .boton-pag:hover{
+    background-color: rgb(70, 66, 66);
+}

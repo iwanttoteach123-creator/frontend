@@ -1,0 +1,423 @@
+.container-corpus{
+  background-color: #F4F4F4;
+}
+body.dark-mode .container-corpus{
+  background-color: #0A1126;
+}
+
+body.dark-mode .container-foro{
+  background-color: #0A1126;
+}
+
+.container-foro .container-respuesta {
+  background-color: #F4F4F4;
+  padding-bottom: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 40%;
+}
+body.dark-mode .container-foro .container-respuesta {
+  background-color: #0A1126;
+}
+
+.container-foro .container-body-foro {
+  position: relative;
+  max-width: 90%;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 20px auto;
+  margin-top: 29px;
+  box-sizing: border-box;
+}
+body.dark-mode .container-foro .container-body-foro {
+  background-color: #172140;
+  border: 1px solid #172140;
+}
+
+.container-foro .container-respuesta .container-body-respuesta {
+  position: relative;
+  max-width: 90%;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 20px auto;
+  margin-top: 29px;
+  box-sizing: border-box;
+}
+body.dark-mode .container-foro .container-respuesta .container-body-respuesta {
+  background-color: #172140;
+  border: 1px solid #172140;
+}
+
+.container-foro .respuesta-list {
+  margin-top: 30px;
+  list-style: none;
+  padding: 0;
+}
+
+.container-foro .respuesta-item {
+  margin-bottom: 10px;
+}
+
+.container-foro .respuesta-card {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 30px;
+  position: relative; /* Agregamos position relative */
+  background: #f8f9fa;
+}
+body.dark-mode .container-foro .respuesta-card {
+  background-color: #172140;
+  border: 1px solid #172140;
+}
+
+.container-foro .respuesta-line {
+  position: absolute; /* La hacemos position absolute */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #ff7575; /* Mismo color que el botón */
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  margin-left: -1px; /* Compensación del borde de 1px de la respuesta-card */
+}
+
+.container-foro .respuesta-line2 {
+  position: absolute; /* La hacemos position absolute */
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 5px;
+  background-color: #0f7d7e; /* Mismo color que el botón */
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  margin-left: -1px; /* Compensación del borde de 1px de la respuesta-card */
+}
+
+.container-foro .respuesta-content {
+  padding: 10px;
+}
+
+.container-foro .titulo-expandir {
+  display: flex;
+  flex-direction: row; /* Título y botón de expandir en fila */
+  justify-content: space-between; /* Espacio entre el título y el botón */
+  align-items: center; /* Alinea verticalmente */
+}
+
+.container-foro .respuesta-detalle {
+  display: flex;
+  flex-direction: column; /* Contenido expandido en columna */
+}
+
+.container-foro .nombre-usuario {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container-foro .nombre-usuario p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+
+.container-foro .respuesta-detalle {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.container-foro .btn-editar {
+  background-color: #0f7d7e;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.container-foro .btn-editar:hover {
+  background-color: #0a5859;
+}
+
+.container-foro .btn-guardar {
+  background-color: #4CAF50;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.container-foro .btn-guardar:hover {
+  background-color: #45a049;
+}
+
+.container-foro .titulo-corpus {
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.container-foro .nombre-usuario {
+  font-style: italic; /* Estilo en cursiva para distinguir el nombre */
+  color: gray; /* Color gris para el nombre del usuario */
+  margin-left: 10px; /* Espaciado a la izquierda */
+}
+
+.container-foro .respuesta-detalle {
+  display: flex;
+  flex-direction: row; /* Cambiar a fila para alinear horizontalmente */
+  justify-content: space-between; /* Espacio entre los elementos */
+  align-items: center; /* Centra los elementos verticalmente */
+}
+
+.container-foro .respuesta-detalle .descripcion {
+  flex-grow: 1; /* Permite que la descripción use el espacio disponible */
+  margin-right: 1rem; /* Espacio a la derecha de la descripción */
+}
+
+.container-foro .respuesta-detalle .botones {
+  display: flex; /* Establece un contenedor flexible para los botones */
+  justify-content: flex-end; /* Alinea los botones a la derecha */
+  margin-top: auto; /* Empuja el contenedor de botones hacia abajo */
+  gap: 10px;
+}
+
+.container-foro .respuestas-container {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #ccc; /* Opcional, para dar estilo */
+}
+body.dark-mode .container-foro .respuestas-container {
+  background-color: #172140;
+  border: 1px solid #555F73;
+}
+
+.container-foro .respuesta {
+  padding: 5px;
+  margin-bottom: 10px; /* Ajusta el espaciado según sea necesario */
+  border: 1px solid #ccc; /* Borde opcional para las respuestas */
+  border-radius: 4px; /* Bordes redondeados para las respuestas */
+  background-color: #f9f9f9; /* Color de fondo para las respuestas */
+}
+body.dark-mode .container-foro .respuesta {
+  background-color: #555F73;
+  border: 1px solid #555F73;
+  color: #fff;
+}
+
+.btn-eliminar {
+  float: right; /* Hace que el botón flote a la derecha */
+}
+
+.table {
+    width: calc(100% - 60px);
+    margin-left: 30px;
+    margin-right: 0;
+    box-sizing: border-box;
+}
+
+.table th {
+    padding: 30px;
+    text-align: left; /* Asegúrate de que esto esté aquí */
+    color: #39003E;
+    font-size: 1.1rem;
+}
+body.dark-mode .table th {
+  background-color: #172140;
+    color: #fff;
+}
+
+.table td {
+    padding: 15px;
+    text-align: left;
+    color: #39003E;
+    font-size: 1.1rem;
+}
+body.dark-mode .table td {
+  background-color: #172140;
+    color: #fff;
+}
+
+#header-respuestas {
+    text-align: center; /* Este se queda centrado */
+}
+
+#cantidad-respuestas {
+    text-align: center;
+}
+
+.btn-eliminar {
+    float: right;
+}
+
+.container-foro .btn-expandir {
+  background-color: #92319B;
+  color: white;
+  padding: 0 19px !important;
+  border-radius: 6px;
+  font-size: 1rem;
+  position: relative; /* Asegúrate de que el botón tenga posición relativa */
+  left: -40px; /* Ajusta el valor para mover el botón a la izquierda */
+}
+
+.container-foro .btn-expandir:hover {
+  opacity: 0.8;
+}
+
+.container-body-foro .Principal {
+  background-color: #f2f2f2;
+  border-top: solid 1px #9B9B9B;
+  border-bottom: solid 1px #9B9B9B;
+  padding: 9px 10px;
+  display: flex; /* Utiliza flexbox */
+  justify-content: space-between; /* Espacia los elementos entre el inicio y el final */
+  align-items: center; /* Alinea verticalmente los elementos en el centro */
+}
+body.dark-mode .container-body-foro .Principal {
+  background-color: #0A1126;
+  border-top: 1px solid #555F73;
+  border-bottom: 1px solid #555F73;
+}
+
+.container-body-foro .Principal p {
+  color: rgb(48, 0, 53);
+  margin: 0;
+  font-weight: 500;
+}
+body.dark-mode .container-body-foro .Principal p {
+  color: #fff;
+}
+
+.container-body-foro .btn-agregar {
+  margin-top: 10px;
+  background-color: rgb(63, 1, 70);
+  border: none;
+}
+
+.icono-plus{
+  width: 26px; /* ajusta el tamaño según sea necesario */
+  height: 26px; /* ajusta el tamaño según sea necesario */
+  margin-right: 6px; /* espacio entre el ícono y el texto */
+  
+}
+
+.container-body-foro .btn-agregar:hover {
+  background-color: rgb(26, 1, 29);
+}
+
+.responder-eliminar {
+  display: flex; /* Usar flexbox para alinear los botones en fila */
+  gap: 0px; /* Elimina el espacio entre los botones */
+}
+
+.responder-eliminar .eliminar-foro {
+  height: 25px;
+  width: auto;
+  cursor: pointer; /* Cambia el cursor a una mano al pasar el mouse */
+}
+
+.responder-eliminar .eliminar-foro img {
+  height: 25px;
+  width: auto;
+  transition: transform 0.3s ease; /* Transición suave para el efecto de hover */
+  margin-left: -20px;
+}
+
+.responder-eliminar .eliminar-foro:hover img {
+  transform: scale(1.1); /* Aumenta ligeramente el tamaño de la imagen en hover */
+}
+
+.respuestas-container {
+  margin-top: 10px; /* Espacio superior para separar del contenido anterior */
+}
+
+.full-width {
+  background-color: #fff;
+  width: 100%; /* Asegura que el textarea ocupe todo el ancho disponible */
+  padding: 8px; /* Añadir un poco de padding para un mejor aspecto */
+  border: 1px solid #ccc; /* Bordes suaves */
+  border-radius: 4px; /* Esquinas redondeadas */
+  box-sizing: border-box; /* Incluye padding y border en el ancho total */
+}
+body.dark-mode .full-width {
+  background-color: #555F73;
+  border: 1px solid #555F73;
+}
+
+.btn-success {
+  background-color: #92319B; /* Color morado */
+  color: white; /* Color de texto blanco */
+  border: none; /* Sin bordes */
+  border-radius: 4px; /* Esquinas redondeadas */
+  padding: 6px 10px; /* Menos padding */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  margin-top: 5px; /* Separación entre el textarea y el botón */
+  transition: background-color 0.3s; /* Transición suave para el hover */
+  margin-bottom: 10px;
+}
+
+.btn-success:hover {
+  opacity: 0.8;
+  background-color: #92319B; /* Color morado */
+}
+
+.modal-buttons-foro {
+  display: flex; /* Utiliza flexbox para alinear los botones en una fila */
+  justify-content: space-between; /* Espacio igual entre los botones */
+  margin-top: 15px; /* Espacio superior para separar de otros elementos */
+}
+
+.modal-buttons-foro .btn {
+  margin-right: 10px; /* Espacio entre los botones */
+}
+
+.modal-buttons-foro .btn:last-child {
+  margin-right: 0; /* Elimina el margen del último botón */
+}
+
+.btn-agregar2 {
+  background-color: #6a0dad; /* Color morado */
+  color: white; /* Color de texto blanco */
+  border: none; /* Sin bordes */
+  border-radius: 4px; /* Esquinas redondeadas */
+  padding: 0.5rem 1rem; /* Menos padding */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  margin-top: 5px; /* Separación entre el textarea y el botón */
+  transition: background-color 0.3s; /* Transición suave para el hover */
+  margin-bottom: 10px;
+}
+
+.btn-cancelar2 {
+  background-color: #d33649 ; /* Color morado */
+  color: white; /* Color de texto blanco */
+  border: 1px solid #d33649;
+  border-radius: 4px; /* Esquinas redondeadas */
+  padding: 6px 10px !important; /* Menos padding */
+  cursor: pointer; /* Cambia el cursor al pasar el mouse */
+  margin-top: 5px; /* Separación entre el textarea y el botón */
+  transition: background-color 0.3s; /* Transición suave para el hover */
+  margin-bottom: 10px;
+}
+
+.btn-agregar2:hover , .btn-cancelar2:hover {
+  opacity: 0.8;
+}
+
+.btn-agregar{
+  color: #fff;
+}

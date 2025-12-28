@@ -1,0 +1,362 @@
+/* Estilos básicos para el calendario */
+.calendar-month {
+  margin-bottom: 20px;
+  padding: 0 20px; /* Añade padding a los lados izquierdo y derecho */
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr); /* 7 columnas para cada día de la semana */
+  gap: 5px;
+}
+
+.calendar-day {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+  background-color: #f9f9f9;
+}
+body.dark-mode .calendar-day {
+  background-color: #555F73;
+  border: 1px solid #172140;
+  color: #fff;
+}
+
+.day-number {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.activities {
+  margin-top: 10px;
+}
+
+.activity {
+  font-size: 12px;
+  background-color: #eef;
+  padding: 5px;
+  border-radius: 3px;
+  margin-top: 5px;
+}
+
+/* Resaltar actividades cerradas con rojo */
+.activity-closed {
+  background-color: #f8d7da; /* Fondo rojo claro */
+  border: 1px solid #f5c6cb; /* Borde rojo más oscuro */
+}
+
+.activity-closure {
+  color: #721c24; /* Color rojo oscuro para la fecha de cierre */
+  font-size: 0.9em;
+  font-weight: bold;
+}
+
+.activity.start {
+  background-color: #4CAF50; /* Verde */
+  color: white;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 3px;
+}
+
+.activity.end {
+  background-color: #F44336; /* Rojo */
+  color: white;
+  padding: 5px;
+  margin-top: 5px;
+  border-radius: 3px;
+}
+
+/* Estilo para el modal */
+.custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Asegura que esté sobre el contenido */
+}
+
+/* Contenido del modal */
+.custom-modal-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+  text-align: left;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilo para el botón de cerrar */
+.custom-modal-content button {
+  padding: 10px 15px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+/* Cambiar color del botón al pasar el ratón */
+.custom-modal-content button:hover {
+  background-color: #45a049;
+}
+
+/* Estilos para el calendario */
+.calendario-navigation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.calendario-title {
+  font-size: 1.5em;
+  margin: 0 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.calendario-arrow {
+  font-size: 1.5em;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  transition: color 0.3s ease;
+}
+body.dark-mode .calendario-arrow {
+  color: #fff;
+}
+
+.calendario-arrow:hover,
+body.dark-mode .calendario-arrow:hover {
+  color: #007bff;
+}
+
+.calendar-month {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 10px;
+  width: 100%;
+}
+
+.calendar-day {
+  text-align: center;
+}
+
+.day-number {
+  font-size: 1.2em;
+  margin-bottom: 10px;
+}
+
+.activities .activity {
+  padding: 5px;
+  margin: 5px 0;
+  cursor: pointer;
+}
+
+.activity.start {
+  background-color: #e1f5fe;
+}
+
+.activity.end {
+  background-color: #ffccbc;
+}
+
+/* Estilos para el modal */
+.custom-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.custom-modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px;
+}
+
+/* Actividades de inicio (verde) */
+.activity.start {
+  background-color: #4CAF50; /* Verde más intenso */
+  color: white;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  font-weight: bold; /* Añadimos negrita para resaltar */
+}
+
+/* Actividades de cierre (rojo) */
+.activity.end {
+  background-color: #F44336; /* Rojo más fuerte */
+  color: white;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  font-weight: bold; /* Añadimos negrita para resaltar */
+}
+
+/* Actividades cerradas (rojo claro) */
+.activity-closed {
+  background-color: #f8d7da; /* Rojo claro */
+  border: 1px solid #f5c6cb; /* Borde rojo más oscuro */
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+  font-weight: bold; /* Añadimos negrita */
+}
+
+/* Actividad de inicio y cierre (más fuerte) */
+.activity.start,
+.activity.end {
+  font-weight: bold;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 5px;
+}
+
+/* Actividad de inicio (verde claro) */
+.activity.start {
+  background-color: #66BB6A; /* Verde más brillante */
+}
+
+/* Actividad de cierre (rojo claro) */
+.activity.end {
+  background-color: #FF7043; /* Rojo más suave pero aún visible */
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+/* Modal principal */
+.calendario-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.6); /* Fondo oscuro semi-transparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Contenido del modal */
+.calendario-modal-content {
+  background-color: #ffffff;
+  border-radius: 8px;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  color: #333;
+  font-family: 'Arial', sans-serif;
+}
+
+/* Título del modal */
+.calendario-modal-title {
+  font-size: 1.8em;
+  margin-bottom: 15px;
+  color: #6C00AE; /* Verde para el título */
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Información del modal */
+.calendario-modal-info {
+  margin-bottom: 20px;
+}
+
+/* Estilos de cada línea de información */
+.calendario-modal-info p {
+  font-size: 1em;
+  margin-bottom: 8px;
+  line-height: 1.6;
+}
+
+.calendario-modal-info strong {
+  color: #2F7A99; /* Azul para los títulos */
+}
+
+/* Botón de cierre */
+.calendario-modal-close-button {
+  background-color: #6C00AE;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 1em;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.calendario-modal-close-button:hover {
+  background-color: #350553;
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+  .calendar-grid {
+      grid-template-columns: repeat(3, 1fr); /* 3 columnas para dispositivos medianos */
+  }
+}
+
+@media (max-width: 768px) {
+  .calendar-grid {
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas para dispositivos pequeños */
+  }
+
+  .custom-modal-content {
+      width: 95%;
+  }
+
+  .calendario-modal-title {
+      font-size: 1.5em;
+  }
+
+  .calendario-modal-info p {
+      font-size: 0.9em;
+  }
+}
+
+@media (max-width: 576px) {
+  .calendar-grid {
+      grid-template-columns: 1fr; /* 1 columna para dispositivos muy pequeños */
+  }
+
+  .calendario-navigation {
+      flex-direction: column;
+  }
+
+  .calendario-title {
+      margin: 10px 0;
+  }
+}

@@ -1,0 +1,707 @@
+/* Admin.css */
+
+  
+  
+  
+  /* Modal */
+  .admin-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .admin-modal__fade.show {
+    display: flex;
+  }
+  
+  .admin-modal__dialog {
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .admin-modal__content {
+    background-color: white;
+    border-radius: 8px;
+    padding: 20px;
+  }
+  
+  .admin-modal__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+  }
+  
+  .admin-modal__title {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+  
+  .admin-modal__body {
+    padding: 20px 0;
+  }
+  
+  .admin-modal__footer {
+    display: flex;
+    justify-content: flex-end;
+    padding-top: 10px;
+  }
+  
+  .admin-modal__footer button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+  
+  .admin-modal__footer button:hover {
+    background-color: #0056b3;
+  }
+  
+  
+  /* Estilo para el modal */
+.admin-modal__fade {
+  display: none; /* El modal está oculto por defecto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro */
+  z-index: 1050; /* Asegúrate de que el modal esté por encima de otros elementos */
+  justify-content: center; /* Centrado horizontal */
+  align-items: center; /* Centrado vertical */
+}
+
+.admin-modal__dialog {
+  position: relative;
+  margin: auto;
+  max-width: 600px; /* Ancho máximo del modal */
+  background-color: white;
+  border-radius: 8px; /* Bordes redondeados */
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.admin-modal__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-modal__title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.admin-modal__body {
+  margin-top: 20px;
+}
+
+
+
+.admin-modal__submit-button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+.admin-modal__submit-button:hover {
+  background-color: #45a049;
+}
+
+/* Estilo cuando el modal es visible */
+.admin-modal__fade.show {
+  display: flex; /* Cambia de 'none' a 'flex' para mostrar el modal */
+}
+
+
+
+/* General styles */
+.admin-content {
+  color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 80%;
+  margin: 0 auto;
+}
+
+.admin-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.admin-tabs__tab {
+  padding: 10px 100px;
+  margin: 0 10px;
+  color: #ffffff;
+  background-color: #39003e92;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 15px; /* Bordes redondeados */
+}
+
+.admin-tabs__tab--active {
+  background-color: #39003E;
+  color: #ffffff;
+  border-radius: 15px; /* Bordes redondeados en la pestaña activa */
+}
+
+
+.admin-tab-content {
+  text-align: center;
+}
+
+/* Usuarios Table */
+.admin-usuarios__title,
+.admin-cursos__title {
+  margin-bottom: 15px;
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: black;
+  text-shadow: 2px 2px 0px white, -2px -2px 0px white, 2px -2px 0px white, -2px 2px 0px white; /* Borde blanco alrededor del texto */
+}
+
+
+.admin-usuarios__table,
+.admin-cursos__table {
+  width: 90%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #ffffff;
+  color: #333;
+}
+
+.admin-usuarios__table th,
+.admin-usuarios__table td,
+.admin-cursos__table th,
+.admin-cursos__table td {
+  padding: 15px;
+  border-bottom: 1px solid #ddd;
+}
+
+.admin-usuarios__table th,
+.admin-cursos__table th {
+  background-color: #39003E;
+  color: #ffffff;
+}
+
+.admin-usuarios__table tbody tr:nth-child(even),
+.admin-cursos__table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Action Buttons */
+.admin-usuarios__action-button,
+.admin-cursos__action-button {
+  padding: 5px 10px;
+  margin: 0 5px;
+  color: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.admin-usuarios__action-button--view,
+.admin-cursos__action-button--view {
+  background-color: #36A9E0;
+}
+
+.admin-usuarios__action-button--edit,
+.admin-cursos__action-button--edit {
+  background-color: #39003E;
+}
+
+.admin-usuarios__action-button--delete,
+.admin-cursos__action-button--delete {
+  background-color: #d33649;
+}
+
+/* Specific Classes for Editing */
+.admin-cursos__edit-input {
+  padding: 5px;
+  width: 80%;
+  font-size: 1rem;
+}
+
+
+
+.admin-cursos__action-button--accept{
+  background-color: #39003E;
+}
+
+.admin-cursos__action-button--cancel{
+  background-color: #d33649;
+}
+
+.admin-usuarios__create-button {
+  background-color: #36A9E0; /* Color de fondo */
+  color: #ffffff; /* Color de texto */
+  padding: 10px 15px; /* Espaciado interno */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 20px; /* Margen inferior */
+  display: inline-flex; /* Usamos inline-flex para que el botón no ocupe todo el ancho */
+  align-items: center; /* Centrar verticalmente */
+  justify-content: flex-end; /* Alineación a la derecha */
+}
+
+
+.admin-usuarios__create-button:hover {
+  background-color: #2c8dcf; /* Color de fondo al pasar el cursor */
+}
+
+
+/* Modal personalizado */
+.admin-modal--custom {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo oscuro semi-transparente */
+}
+
+.admin-modal__dialog--custom {
+  max-width: 600px;
+  margin: 30px auto;
+}
+
+.admin-modal__content--custom {
+  background-color: #fff; /* Fondo blanco para el contenido del modal */
+  border-radius: 10px;
+  padding: 20px;
+  color: #333; /* Color del texto */
+}
+
+/* Encabezado del modal */
+.admin-modal__header--custom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.admin-modal__title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #39003E; /* Color principal */
+  text-shadow: 2px 2px 0px white, -2px -2px 0px white, 2px -2px 0px white, -2px 2px 0px white;
+}
+
+/* Botón de cierre */
+.admin-modal__close {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #39003E;
+  cursor: pointer;
+}
+
+/* Cuerpo del modal */
+.admin-modal__body--custom {
+  margin-top: 20px;
+}
+
+/* Lista de cursos */
+.admin-modal__course-item {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.admin-modal__course-item:last-child {
+  border-bottom: none;
+}
+
+/* Botones dentro del modal */
+.admin-modal__inscribir-btn,
+.admin-modal__desinscribir-btn {
+  background-color: #36A9E0 !important; /* Color azul para los botones */
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-modal__inscribir-btn:hover,
+.admin-modal__desinscribir-btn:hover {
+  background-color: #2A7CBB;
+}
+
+.admin-modal__desinscribir-btn {
+  background-color: #d33649 !important; /* Color rojo para el botón de desinscripción */
+  color: #ffffff;
+  padding: 5px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border: none;
+  align-self: flex-end;  /* Esto alinea el botón a la derecha */
+  width: auto;
+}
+
+
+.admin-modal__desinscribir-btn:hover {
+  background-color: #b02a3d;
+}
+
+.admin-modal__body--custom {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.admin-modal__item-container {
+  display: flex;
+  justify-content: space-between; /* Esto coloca un ítem a la izquierda y el otro a la derecha */
+  width: 100%; /* Asegura que los ítems ocupen todo el ancho */
+}
+
+
+/* Botón de cierre */
+.admin-modal__close {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #000; /* Color negro para la cruz */
+  cursor: pointer;
+}
+
+.admin-modal__inscribir-btn{
+  background-color: #36A9E0; /* Color del botón */
+  color: #ffffff; /* Color del texto */
+  width: 100%; /* Ocupa todo el ancho */
+  padding: 10px 0; /* Menos alto */
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  border: none;
+}
+
+.admin-modal__course-item {
+  display: flex;
+  justify-content: space-between; /* Esto hace que el nombre del curso esté a la izquierda y el botón a la derecha */
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+
+
+/* Modal Editar Usuario */
+.admin-modal--edit {
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo translúcido */
+}
+
+.admin-modal__dialog--edit {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.admin-modal__content--edit {
+  display: flex;
+  flex-direction: column;
+}
+
+.admin-modal__header--edit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.admin-modal__title--edit {
+  font-size: 1.6rem;
+  color: #39003e;
+  margin: 0;
+}
+
+.admin-modal__body--edit {
+  padding: 20px 0;
+}
+
+.admin-modal__form-group {
+  margin-bottom: 15px;
+}
+
+.admin-modal__label {
+  display: block;
+  font-weight: bold;
+  color: #39003e;
+  margin-bottom: 5px;
+}
+
+.admin-modal__input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  color: #333;
+  transition: border-color 0.3s ease;
+}
+
+.admin-modal__input:focus {
+  border-color: #36A9E0;
+  outline: none;
+}
+
+.admin-modal__submit-btn {
+  width: 100%;
+  padding: 12px;
+  background-color: #36A9E0;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.admin-modal__submit-btn:hover {
+  background-color: #2b8fa7;
+}
+
+@media (max-width: 768px) {
+  .admin-modal__dialog--edit {
+    max-width: 90%;
+  }
+}
+
+
+
+/* Modal general */
+.admin-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1050;
+  display: none;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Mostrar el modal */
+.admin-modal__fade.show {
+  display: block;
+}
+
+/* Diálogo del modal */
+.admin-modal__dialog {
+  position: relative;
+  margin: 1.75rem auto;
+  max-width: 600px;
+  width: 90%;
+}
+
+/* Contenido del modal */
+.admin-modal__content {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Cabecera del modal */
+.admin-modal__header {
+  padding: 1rem;
+  border-bottom: 1px solid #ddd;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f8f9fa;
+}
+
+.admin-modal__title {
+  font-size: 1.25rem;
+  color: #343a40;
+  margin: 0;
+}
+
+/* Cuerpo del modal */
+.admin-modal__body {
+  padding: 1rem;
+  font-size: 1rem;
+}
+
+/* Estilo de la lista de cursos */
+.admin-modal__body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.admin-modal__body li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.admin-modal__body li:hover {
+  background-color: #f8f9fa;
+}
+
+.admin-modal__body li span {
+  color: #495057;
+  font-weight: 500;
+}
+
+.admin-modal__body li button {
+  padding: 0.5rem 1rem;
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.admin-modal__body li button:hover {
+  background-color: #0056b3;
+}
+
+.admin-modal__body li button:focus {
+  outline: none;
+}
+
+/* Mensaje cuando no hay cursos */
+.admin-modal__body .no-courses {
+  font-size: 1.125rem;
+  color: #6c757d;
+  text-align: center;
+  padding: 1rem;
+}
+
+/* Estilo para el botón "Inscribir Curso" con color celeste */
+.btn-inscribir-curso {
+  padding: 0.5rem 1.25rem;
+  background-color: #248ee5 !important; /* Celeste claro (puedes ajustarlo si prefieres otro tono) */
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Efecto hover para el botón */
+.btn-inscribir-curso:hover {
+  background-color: #0f5fa0  !important; /* Celeste más oscuro para el hover */
+}
+
+/* Efecto focus para el botón */
+.btn-inscribir-curso:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(167, 216, 255, 0.5);
+}
+
+/* Estilo para el modal de usuarios inscritos */
+.usuarios-modal .modal-content {
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  padding: 20px;
+  max-height: 80vh; /* Limita la altura del modal */
+  overflow: hidden; /* Evita el desbordamiento del modal */
+}
+
+.usuarios-modal__header {
+  background-color: #f5f7fa;
+  border-bottom: 2px solid #ddd;
+  padding: 15px;
+}
+
+.usuarios-modal__header .modal-title {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.usuarios-modal__body {
+  padding: 15px;
+  font-family: 'Arial', sans-serif;
+  max-height: 60vh; /* Establece una altura máxima para el cuerpo */
+  overflow-y: auto; /* Permite el desplazamiento vertical */
+}
+
+.usuarios-modal__loading,
+.usuarios-modal__error {
+  font-size: 1rem;
+  text-align: center;
+  color: #888;
+}
+
+.usuarios-modal__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.usuarios-modal__list-item {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+  color: #333;
+}
+
+.usuarios-modal__list-item:hover {
+  background-color: #e9ecef;
+}
+
+.usuarios-modal__no-users {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.usuarios-modal__footer {
+  padding: 10px 15px;
+  background-color: #f5f7fa;
+  border-top: 2px solid #ddd;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.usuarios-modal__close-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 15px;
+}
+
+.usuarios-modal__close-button:hover {
+  background-color: #0056b3;
+}
